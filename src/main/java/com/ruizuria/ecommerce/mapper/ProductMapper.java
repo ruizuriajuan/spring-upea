@@ -12,7 +12,7 @@ public interface ProductMapper {
     @Mappings({
             @Mapping(source = "category.id", target = "categoryId")
     })
-    ProductDto toProductDto(Product dto);
+    ProductDto toProductDto(Product product);
 
     @InheritInverseConfiguration
     @Mapping(target = "category", ignore = true)

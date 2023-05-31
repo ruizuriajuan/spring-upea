@@ -12,9 +12,9 @@ public class ProductDto {
     private String name;
     private String description;
     private String imageUrl;
-    private double price;
-    private int stock;
-    private boolean active;
+    private Double price;
+    private Integer stock;
+    private Boolean active;
     private Integer categoryId;
 }
 
