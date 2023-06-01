@@ -8,6 +8,12 @@ INSERT IGNORE INTO categories (id, name, description) VALUES (4, 'WORK', 'Mochil
 INSERT IGNORE INTO roles (id, name, description) VALUES (1, 'ADMIN', 'Role admin');
 INSERT IGNORE INTO roles (id, name, description) VALUES (2, 'USER', 'Role user');
 
+-- Default users --
+INSERT IGNORE INTO users (id, first_name, last_name, email, password, enable, address, id_role) VALUES (1, 'Juan', 'Perez', 'admin@gmail.com', '123456', true, 'La Paz', 1);
+INSERT IGNORE INTO users (id, first_name, last_name, email, password, enable, address, id_role) VALUES (2, 'Ana', 'Perez', 'user@gmail.com', '123456', true, 'El Alto', 2);
+
+
+
 -- Default products --
 INSERT IGNORE INTO products (name, description, image_url, price, stock, active, category_id) VALUES
 ('Mochila Profesional', 'Description del producto A','https://image.png1',240,30,true,1),
