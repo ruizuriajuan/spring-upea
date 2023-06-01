@@ -7,7 +7,7 @@ INSERT IGNORE INTO categories (id, name, description) VALUES (4, 'WORK', 'Mochil
 -- Default roles --
 INSERT IGNORE INTO roles (id, name, description) VALUES (1, 'ADMIN', 'Role admin');
 INSERT IGNORE INTO roles (id, name, description) VALUES (2, 'USER', 'Role user');
-
+ALTER IGNORE TABLE roles AUTO_INCREMENT = 3;
 -- Default users --
 INSERT IGNORE INTO users (id, first_name, last_name, email, password, enable, address, id_role) VALUES (1, 'Juan', 'Perez', 'admin@gmail.com', '123456', true, 'La Paz', 1);
 INSERT IGNORE INTO users (id, first_name, last_name, email, password, enable, address, id_role) VALUES (2, 'Ana', 'Perez', 'user@gmail.com', '123456', true, 'El Alto', 2);

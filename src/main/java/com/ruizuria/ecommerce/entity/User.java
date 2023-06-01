@@ -16,12 +16,10 @@ import java.util.UUID;
 public class User {
     @Id
     @GeneratedValue
-    @JdbcTypeCode(Types.VARCHAR)
-    private UUID id;
+    private Integer id;
     private String firstName;
     private String lastName;
     private String email;
-    @JsonIgnore
     private String password;
     private String address;
     private Boolean enable;

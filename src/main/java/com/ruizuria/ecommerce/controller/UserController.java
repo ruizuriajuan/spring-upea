@@ -1,5 +1,6 @@
 package com.ruizuria.ecommerce.controller;
 
+import com.ruizuria.ecommerce.dto.UserDto;
 import com.ruizuria.ecommerce.entity.Role;
 import com.ruizuria.ecommerce.entity.User;
 import com.ruizuria.ecommerce.service.UserService;
@@ -18,8 +19,8 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getById(@PathVariable Integer id) {
-        User userFound = userService.getById(id);
+    public ResponseEntity<UserDto> getById(@PathVariable Integer id) {
+        UserDto userFound = userService.getById(id);
         return ResponseEntity.status(HttpStatus.OK).body(userFound);
     }
 }
