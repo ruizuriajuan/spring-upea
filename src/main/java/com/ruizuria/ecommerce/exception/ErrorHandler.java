@@ -1,5 +1,6 @@
 package com.ruizuria.ecommerce.exception;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -23,5 +24,19 @@ public class ErrorHandler {
         //message(String.format(ERROR_MESSAGE, ex.getMessage().split(" ")[6]))
         return ResponseEntity.status(status).body(error);
     }
+
+    @ExceptionHandler(EmailTaken.class)
+    public ResponseEntity<ErrorResponse> emailTakenException(Exception ex) {
+        HttpStatus status = HttpStatus.CONFLICT;
+        ErrorResponse error = ErrorResponse.builder()
+                .status(status.value())
+                .error("Email already taken")
+                .message(ex.getMessage())
+                .build();
+
+        return ResponseEntity.status(status).body(error);
+    }
+
+
 
 }

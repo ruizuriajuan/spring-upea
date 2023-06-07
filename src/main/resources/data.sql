@@ -9,9 +9,8 @@ INSERT IGNORE INTO roles (id, name, description) VALUES (1, 'ADMIN', 'Role admin
 INSERT IGNORE INTO roles (id, name, description) VALUES (2, 'USER', 'Role user');
 
 -- Default users --
-INSERT IGNORE INTO users (id, first_name, last_name, email, password, enable, address, id_role) VALUES (1, 'Juan', 'Perez', 'admin@gmail.com', '123456', true, 'La Paz', 1);
+INSERT IGNORE INTO users (id, first_name, last_name, email, password, enable, address, id_role) VALUES (1, 'Juan', 'Perez', 'admin@gmail.com', '$2a$12$bxAR57gnjgibdgnxFeELE.FRwtLfWafZaTFj1JnnCCO/cK.2hOsby', true, 'La Paz', 1);
 INSERT IGNORE INTO users (id, first_name, last_name, email, password, enable, address, id_role) VALUES (2, 'Ana', 'Perez', 'user@gmail.com', '123456', true, 'El Alto', 2);
-
 
 
 -- Default products --
