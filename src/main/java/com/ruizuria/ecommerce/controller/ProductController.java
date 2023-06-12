@@ -4,6 +4,8 @@ import com.ruizuria.ecommerce.dto.PageDto;
 import com.ruizuria.ecommerce.dto.ProductDto;
 import com.ruizuria.ecommerce.entity.Product;
 import com.ruizuria.ecommerce.service.ProductService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,8 +22,9 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @SecurityRequirement(name = "bearerAuth")
     @PostMapping
-    public ResponseEntity<Product> create(@RequestBody ProductDto dto) {
+    public ResponseEntity<Product> create(@Valid @RequestBody ProductDto dto) {
         Product productSaved = productService.create(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(productSaved);
     }

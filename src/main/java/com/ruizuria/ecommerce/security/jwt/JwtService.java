@@ -8,13 +8,13 @@ import com.ruizuria.ecommerce.entity.User;
 import com.ruizuria.ecommerce.security.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-
+import org.springframework.beans.factory.annotation.Value;
 @Service
 public class JwtService {
-    private final String SECRET_KEY = "s3cr3t0";
+    @Value("${spring.jwt.secret-key}")
+    private String secretKey;
     @Autowired
     private UserDetailService userDetailService;
 
@@ -24,11 +24,11 @@ public class JwtService {
                 .withClaim("role", user.getRole().getName())
                 .withIssuedAt(new Date())
                 .withExpiresAt(new Date(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(30)))
-                .sign(Algorithm.HMAC256(SECRET_KEY));
+                .sign(Algorithm.HMAC256(secretKey));
     }
 
     public User decodeToken(String token) {
-        JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET_KEY)).build();
+        JWTVerifier verifier = JWT.require(Algorithm.HMAC256(secretKey)).build();
         DecodedJWT decodedJWT = verifier.verify(token); //recuperamos el payload
         String email = decodedJWT.getSubject(); //nuestro usuario es el email
         return (User) userDetailService.loadUserByUsername(email);

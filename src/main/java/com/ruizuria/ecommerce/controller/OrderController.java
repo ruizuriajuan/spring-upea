@@ -2,11 +2,13 @@ package com.ruizuria.ecommerce.controller;
 
 import com.ruizuria.ecommerce.dto.OrderDto;
 import com.ruizuria.ecommerce.service.OrderService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@SecurityRequirement(name = "bearerAuth")
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
